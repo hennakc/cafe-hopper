@@ -1,0 +1,423 @@
+:root {
+    --cream: #FFF8E7;
+    --light-brown: #D4A574;
+    --medium-brown: #B8865A;
+    --dark-brown: #8B6F47;
+    --deep-brown: #6B5744;
+    --white: #FFFFFF;
+    --shadow: rgba(107, 87, 68, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background: var(--cream);
+    min-height: 100vh;
+}
+
+.slider-container {
+    display: flex;
+    width: 400vw;
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.page {
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    position: relative;
+}
+
+/* Page 1: Landing Page */
+#page1 {
+    background: linear-gradient(135deg, var(--light-brown) 0%, var(--cream) 100%);
+}
+
+.bubbly-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--deep-brown);
+    text-align: center;
+    margin: 2rem 0;
+    text-shadow: 4px 4px 0px var(--white),
+                 8px 8px 0px var(--light-brown);
+    letter-spacing: 2px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Coffee Cup */
+.coffee-cup {
+    position: relative;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(-5deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(-10px) rotate(5deg); }
+}
+
+.cup-body {
+    width: 150px;
+    height: 180px;
+    background: linear-gradient(135deg, var(--medium-brown) 0%, var(--dark-brown) 100%);
+    border-radius: 0 0 60px 60px;
+    position: relative;
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.cup-handle {
+    width: 50px;
+    height: 70px;
+    border: 15px solid var(--dark-brown);
+    border-left: none;
+    border-radius: 0 50px 50px 0;
+    position: absolute;
+    right: -45px;
+    top: 50px;
+}
+
+.saucer {
+    width: 200px;
+    height: 30px;
+    background: var(--light-brown);
+    border-radius: 50%;
+    margin-top: 10px;
+    box-shadow: 0 5px 15px var(--shadow);
+}
+
+.steam {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.steam span {
+    display: block;
+    width: 8px;
+    height: 50px;
+    background: var(--light-brown);
+    border-radius: 50%;
+    opacity: 0.6;
+    margin: 0 5px;
+    animation: steam 2s ease-in-out infinite;
+}
+
+.steam span:nth-child(1) { animation-delay: 0s; }
+.steam span:nth-child(2) { animation-delay: 0.3s; }
+.steam span:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes steam {
+    0% { transform: translateY(0) scaleX(1); opacity: 0.6; }
+    50% { transform: translateY(-20px) scaleX(1.2); opacity: 0.3; }
+    100% { transform: translateY(-40px) scaleX(0.8); opacity: 0; }
+}
+
+/* Buttons */
+.cute-button {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.5rem;
+    padding: 1.2rem 3rem;
+    background: var(--deep-brown);
+    color: var(--cream);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 0 var(--dark-brown),
+                0 12px 20px var(--shadow);
+    transition: all 0.2s;
+    margin-top: 2rem;
+}
+
+.cute-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 11px 0 var(--dark-brown),
+                0 15px 25px var(--shadow);
+}
+
+.cute-button:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0 var(--dark-brown),
+                0 6px 10px var(--shadow);
+}
+
+.cute-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Page 2: Form Page */
+#page2 {
+    background: linear-gradient(135deg, var(--medium-brown) 0%, var(--cream) 50%, var(--white) 100%);
+}
+
+.form-container {
+    max-width: 800px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 3rem;
+    border-radius: 40px;
+    box-shadow: 0 20px 60px var(--shadow);
+    backdrop-filter: blur(10px);
+}
+
+.section-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 2.5rem;
+    color: var(--deep-brown);
+    text-align: center;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 0px var(--light-brown);
+}
+
+.input-group {
+    margin-bottom: 2.5rem;
+}
+
+.input-group label {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.4rem;
+    color: var(--dark-brown);
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.food-options, .occasion-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.option-btn {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    padding: 1rem;
+    background: var(--cream);
+    color: var(--deep-brown);
+    border: 3px solid var(--light-brown);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 0 var(--light-brown);
+}
+
+.option-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 var(--light-brown);
+}
+
+.option-btn.selected {
+    background: var(--dark-brown);
+    color: var(--white);
+    border-color: var(--deep-brown);
+    transform: scale(1.05);
+}
+
+/* Page 3: Results Page */
+#page3 {
+    background: linear-gradient(135deg, var(--light-brown) 0%, var(--cream) 100%);
+    padding: 4rem 2rem;
+}
+
+.results-container {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.cafes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.cafe-card {
+    background: var(--white);
+    border-radius: 30px;
+    padding: 2rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 10px 30px var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.cafe-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--medium-brown), var(--dark-brown));
+}
+
+.cafe-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 50px var(--shadow);
+}
+
+.cafe-card.expanded {
+    grid-column: 1 / -1;
+    transform: scale(1.05);
+    box-shadow: 0 30px 80px rgba(107, 87, 68, 0.5);
+    z-index: 10;
+}
+
+.cafe-name {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.8rem;
+    color: var(--deep-brown);
+    margin-bottom: 0.5rem;
+}
+
+.cafe-rating {
+    color: var(--medium-brown);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.cafe-address {
+    color: var(--dark-brown);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.cafe-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.cafe-card.expanded .cafe-details {
+    max-height: 500px;
+}
+
+.detail-item {
+    background: var(--cream);
+    padding: 1rem;
+    border-radius: 15px;
+    margin: 0.5rem 0;
+    border-left: 4px solid var(--medium-brown);
+}
+
+.select-cafe-btn {
+    font-family: 'Fredoka', sans-serif;
+    margin-top: 1rem;
+    padding: 1rem 2rem;
+    background: var(--deep-brown);
+    color: var(--white);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+}
+
+.select-cafe-btn:hover {
+    background: var(--dark-brown);
+    transform: scale(1.05);
+}
+
+/* Page 4: Thank You Page */
+#page4 {
+    background: linear-gradient(135deg, var(--cream) 0%, var(--light-brown) 100%);
+}
+
+.thank-you-container {
+    text-align: center;
+}
+
+.thank-you-cup {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.sign {
+    position: absolute;
+    bottom: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    padding: 1.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow);
+    border: 3px solid var(--medium-brown);
+    animation: wiggle 1s ease-in-out infinite;
+}
+
+.sign p {
+    font-family: 'Fredoka', sans-serif;
+    color: var(--deep-brown);
+    font-size: 1.2rem;
+    margin: 0.3rem 0;
+    line-height: 1.4;
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: translateX(-50%) rotate(-2deg); }
+    50% { transform: translateX(-50%) rotate(2deg); }
+}
+
+.thank-you-title {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 3rem;
+    color: var(--deep-brown);
+    margin-top: 5rem;
+    text-shadow: 3px 3px 0px var(--white);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .bubbly-title {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .form-container {
+        padding: 2rem;
+    }
+    
+    .food-options, .occasion-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .cafes-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Loading Animation */
+.loading {
+    text-align: center;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.5rem;
+    color: var(--deep-brown);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}

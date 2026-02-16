@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cafe Hopper ☕</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="slider-container">
+        <!-- Page 1: Landing Page -->
+        <div class="page active" id="page1">
+            <div class="coffee-cup">
+                <div class="cup-body">
+                    <div class="steam">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <div class="cup-handle"></div>
+                <div class="saucer"></div>
+            </div>
+            <h1 class="bubbly-title">Your Cafe Hopper</h1>
+            <button class="cute-button" onclick="nextPage()">cafe date? ☕</button>
+        </div>
+
+        <!-- Page 2: Input Form -->
+        <div class="page" id="page2">
+            <div class="form-container">
+                <h2 class="section-title">let's find your perfect spot!</h2>
+                
+                <div class="input-group">
+                    <label for="foodType">what do u want to eat?</label>
+                    <div class="food-options">
+                        <button class="option-btn" data-food="coffee">☕ Coffee & Pastries</button>
+                        <button class="option-btn" data-food="brunch">🥞 Brunch</button>
+                        <button class="option-btn" data-food="dessert">🍰 Desserts</button>
+                        <button class="option-btn" data-food="lunch">🥗 Lunch</button>
+                        <button class="option-btn" data-food="tea">🍵 Tea & Snacks</button>
+                        <button class="option-btn" data-food="pizza">🍕 Pizza</button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>what's the occasion?</label>
+                    <div class="occasion-options">
+                        <button class="option-btn" data-occasion="date">💕 Date</button>
+                        <button class="option-btn" data-occasion="birthday">🎂 Birthday</button>
+                        <button class="option-btn" data-occasion="reception">🎉 Reception</button>
+                        <button class="option-btn" data-occasion="instagram">📸 Instagram Stories</button>
+                        <button class="option-btn" data-occasion="work">💼 Work Meeting</button>
+                        <button class="option-btn" data-occasion="chill">😌 Just Chilling</button>
+                    </div>
+                </div>
+
+                <button class="cute-button" id="findCafesBtn" onclick="findCafes()" disabled>find my cafe! ✨</button>
+            </div>
+        </div>
+
+        <!-- Page 3: Cafe Results -->
+        <div class="page" id="page3">
+            <div class="results-container">
+                <h2 class="section-title">perfect spots for you!</h2>
+                <div class="cafes-grid" id="cafesGrid">
+                    <!-- Cafes will be dynamically added here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Page 4: Thank You Page -->
+        <div class="page" id="page4">
+            <div class="thank-you-container">
+                <div class="coffee-cup thank-you-cup">
+                    <div class="cup-body">
+                        <div class="steam">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="cup-handle"></div>
+                    <div class="saucer"></div>
+                    <div class="sign">
+                        <p>i wanna be ur</p>
+                        <p>coffee date</p>
+                        <p>always ☕💕</p>
+                    </div>
+                </div>
+                <h2 class="thank-you-title">thank you!</h2>
+                <button class="cute-button" onclick="resetApp()">start over? 🔄</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
