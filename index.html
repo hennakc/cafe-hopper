@@ -13,19 +13,30 @@
     <div class="slider-container">
         <!-- Page 1: Landing Page -->
         <div class="page active" id="page1">
-            <div class="coffee-cup">
-                <div class="cup-body">
-                    <div class="steam">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+            <div class="landing-content">
+                <div class="coffee-cup-3d" id="coffeeCup3D">
+                    <div class="cup-container">
+                        <div class="cup-body-3d">
+                            <div class="cup-shine"></div>
+                            <div class="cup-inner"></div>
+                            <div class="coffee-liquid"></div>
+                        </div>
+                        <div class="cup-handle-3d"></div>
+                        <div class="saucer-3d">
+                            <div class="saucer-shine"></div>
+                        </div>
+                        <div class="steam-3d">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </div>
                 </div>
-                <div class="cup-handle"></div>
-                <div class="saucer"></div>
+                <h1 class="bubbly-title">Your Cafe Hopper</h1>
+                <p class="subtitle">discover your perfect coffee moments</p>
+                <button class="cute-button" onclick="nextPage()">cafe date? ☕</button>
             </div>
-            <h1 class="bubbly-title">Your Cafe Hopper</h1>
-            <button class="cute-button" onclick="nextPage()">cafe date? ☕</button>
         </div>
 
         <!-- Page 2: Input Form -->
@@ -74,24 +85,30 @@
         <!-- Page 4: Thank You Page -->
         <div class="page" id="page4">
             <div class="thank-you-container">
-                <div class="coffee-cup thank-you-cup">
-                    <div class="cup-body">
-                        <div class="steam">
+                <div class="coffee-cup-3d thank-you-cup">
+                    <div class="cup-container">
+                        <div class="cup-body-3d">
+                            <div class="cup-shine"></div>
+                            <div class="cup-inner"></div>
+                            <div class="coffee-liquid"></div>
+                        </div>
+                        <div class="cup-handle-3d"></div>
+                        <div class="saucer-3d">
+                            <div class="saucer-shine"></div>
+                        </div>
+                        <div class="steam-3d">
+                            <span></span>
                             <span></span>
                             <span></span>
                             <span></span>
                         </div>
                     </div>
-                    <div class="cup-handle"></div>
-                    <div class="saucer"></div>
-                    <div class="sign">
-                        <p>i wanna be ur</p>
-                        <p>coffee date</p>
-                        <p>always ☕💕</p>
-                    </div>
                 </div>
-                <h2 class="thank-you-title">thank you!</h2>
-                <button class="cute-button" onclick="resetApp()">start over? 🔄</button>
+                <div class="thank-you-card">
+                    <h2 class="thank-you-title">thank you!</h2>
+                    <p class="thank-you-message">i wanna be ur coffee date always ☕💕</p>
+                    <button class="cute-button" onclick="resetApp()">start over? 🔄</button>
+                </div>
             </div>
         </div>
     </div>

@@ -5,6 +5,70 @@ let currentPage = 1;
 let selectedFood = '';
 let selectedOccasion = '';
 
+// 3D Cup Rotation Variables
+let cupsRotationX = 0;
+let cupsRotationY = 0;
+
+// Initialize 3D cup interaction
+document.addEventListener('DOMContentLoaded', () => {
+    // 3D Cup Interactive Rotation
+    const cups = document.querySelectorAll('.coffee-cup-3d');
+    cups.forEach(cup => {
+        cup.addEventListener('mousemove', (e) => {
+            const rect = cup.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            
+            const mouseX = e.clientX - centerX;
+            const mouseY = e.clientY - centerY;
+            
+            const rotateY = (mouseX / (rect.width / 2)) * 15;
+            const rotateX = -(mouseY / (rect.height / 2)) * 15;
+            
+            cup.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+        
+        cup.addEventListener('mouseleave', () => {
+            cup.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+        });
+        
+        cup.addEventListener('click', (e) => {
+            cup.style.transition = 'transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+            cup.style.transform = 'perspective(1000px) rotateX(360deg) rotateY(360deg) scale(1.05)';
+            setTimeout(() => {
+                cup.style.transition = '';
+                cup.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            }, 600);
+        });
+    });
+
+    // Food option buttons
+    const foodButtons = document.querySelectorAll('[data-food]');
+    foodButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove selected class from all food buttons
+            foodButtons.forEach(btn => btn.classList.remove('selected'));
+            // Add selected class to clicked button
+            button.classList.add('selected');
+            selectedFood = button.getAttribute('data-food');
+            checkFormComplete();
+        });
+    });
+
+    // Occasion option buttons
+    const occasionButtons = document.querySelectorAll('[data-occasion]');
+    occasionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove selected class from all occasion buttons
+            occasionButtons.forEach(btn => btn.classList.remove('selected'));
+            // Add selected class to clicked button
+            button.classList.add('selected');
+            selectedOccasion = button.getAttribute('data-occasion');
+            checkFormComplete();
+        });
+    });
+});
+
 // Sample cafe data (will be replaced with API data later)
 const sampleCafes = [
     {
@@ -67,35 +131,6 @@ function updateSlider() {
     const offset = -(currentPage - 1) * 100;
     slider.style.transform = `translateX(${offset}vw)`;
 }
-
-// Handle food selection
-document.addEventListener('DOMContentLoaded', () => {
-    // Food option buttons
-    const foodButtons = document.querySelectorAll('[data-food]');
-    foodButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove selected class from all food buttons
-            foodButtons.forEach(btn => btn.classList.remove('selected'));
-            // Add selected class to clicked button
-            button.classList.add('selected');
-            selectedFood = button.getAttribute('data-food');
-            checkFormComplete();
-        });
-    });
-
-    // Occasion option buttons
-    const occasionButtons = document.querySelectorAll('[data-occasion]');
-    occasionButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove selected class from all occasion buttons
-            occasionButtons.forEach(btn => btn.classList.remove('selected'));
-            // Add selected class to clicked button
-            button.classList.add('selected');
-            selectedOccasion = button.getAttribute('data-occasion');
-            checkFormComplete();
-        });
-    });
-});
 
 // Check if form is complete
 function checkFormComplete() {
